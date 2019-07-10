@@ -21,7 +21,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoaderView} from '../../../../../shared/components/loader';
 import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
-import { MatStepper } from '@angular/material';
+import { MatStepperModule } from '@angular/material';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 /**

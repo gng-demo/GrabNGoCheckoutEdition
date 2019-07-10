@@ -16,7 +16,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 
 import {LoaderModule} from '../../../../../shared/components/loader';
-import {MaterialModule} from '../../core/material_module';
+import {MatStepperModule} from '../../core/material_module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Checkout} from './checkout';
 
@@ -32,7 +32,7 @@ export * from './checkout';
   imports: [
     CommonModule,
     LoaderModule,
-    MaterialModule,
+    MatStepperModule,
     ReactiveFormsModule,
     FormsModule,
   ],
