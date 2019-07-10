@@ -15,6 +15,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 
 import {LoaderView} from '../../../../../shared/components/loader';
 import {CONFIG} from '../../app.config';
@@ -34,18 +36,38 @@ export class Checkout extends LoaderView implements OnInit {
   private readonly title = `Authorization - ${CONFIG.appName}`;
   /** Url to be redirected after login. */
   private returnUrl!: string;
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+
 
   constructor(
       private readonly authService: AuthService,
       private readonly route: ActivatedRoute,
       private readonly router: Router,
       private readonly titleService: Title,
+      private _formBuilder: FormBuilder
   ) {
     super(true);
 
   }
 
   ngOnInit() {
+
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required],
+      LastNameCtrl: ['', Validators.required],
+      EmailCtrl: ['', Validators.required],
+
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
+    this.thirdFormGroup = this._formBuilder.group({
+
+    });
+
 
   }
 
