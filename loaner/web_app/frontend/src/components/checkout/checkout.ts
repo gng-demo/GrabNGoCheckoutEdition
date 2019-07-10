@@ -49,5 +49,10 @@ export class Checkout extends LoaderView implements OnInit {
 
   }
 
+  login()
+  {
+    console.log("Testing");
+  }
+
 
 }
