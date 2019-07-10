@@ -17,7 +17,7 @@ import {NgModule} from '@angular/core';
 
 import {LoaderModule} from '../../../../../shared/components/loader';
 import {MaterialModule} from '../../core/material_module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Checkout} from './checkout';
 
 export * from './checkout';
@@ -33,6 +33,8 @@ export * from './checkout';
     CommonModule,
     LoaderModule,
     MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class CheckoutModule {

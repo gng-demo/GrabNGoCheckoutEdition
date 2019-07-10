@@ -21,6 +21,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoaderView} from '../../../../../shared/components/loader';
 import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
+import { MatStepper } from '@angular/material';
+import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 /**
  * Component that renders the Authorization flow of the application.
@@ -30,13 +32,16 @@ import {AuthService} from '../../services/auth';
   selector: 'loaner-checkout',
   styleUrls: ['checkout.scss'],
   templateUrl: 'checkout.ng.html',
+  providers: [{
+    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class Checkout extends LoaderView implements OnInit {
   /** Title for the component. */
   private readonly title = `Authorization - ${CONFIG.appName}`;
   /** Url to be redirected after login. */
   private returnUrl!: string;
-  isLinear = false;
+  isLinear = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
