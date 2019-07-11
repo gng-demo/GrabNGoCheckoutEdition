@@ -16,7 +16,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {CONFIG} from './app.config';
-import {Checkout, CheckoutModule} from './components/checkout';
+import {CheckoutDetails, CheckoutModule} from './components/checkout';
 import {Authorization, AuthorizationModule} from './components/authorization';
 import {AuthGuard} from './services/auth_guard';
 import {CanDeactivateGuard} from './services/can_deactivate_guard';
@@ -41,7 +41,7 @@ export const SEARCH_PERMISSIONS: string[] = [
 /** Defines the Angular app routes and which views are loaded on which route. */
 const routes: Routes = [
   {path: 'authorization', component: Authorization},
-  {path: 'checkout', component: Checkout},
+  {path: 'checkout', component: CheckoutDetails},
   {
     path: 'bootstrap',
     component: BootstrapView,
