@@ -61,6 +61,7 @@ import {CheckoutService} from './services/gapiservice';
     Config,
     ConfigService,
     GapiService,
+    CheckoutService,
     DeviceService,
     LoanerSnackBar,
     SearchService,
