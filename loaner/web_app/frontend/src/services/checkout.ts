@@ -33,7 +33,7 @@ export class CheckoutService extends ApiService {
    */
   create(newDevice: Checkout) {
     return this.post<void>('create', newDevice.toApiMessage()).pipe(tap(() => {
-      this.snackBar.open(`Device ${newDevice.identifier} enrolled.`);
+      this.snackBar.open(`Device  enrolled.`);
     }));
   }
 

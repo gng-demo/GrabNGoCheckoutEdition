@@ -18,16 +18,16 @@ import {NgModule} from '@angular/core';
 import {LoaderModule} from '../../../../../shared/components/loader';
 import {MaterialModule} from '../../core/material_module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {Checkout} from './checkout';
+import {CheckoutDetails} from './checkout';
 
 export * from './checkout';
 
 @NgModule({
   declarations: [
-    Checkout,
+    CheckoutDetails,
   ],
   exports: [
-    Checkout,
+    CheckoutDetails,
   ],
   imports: [
     CommonModule,

@@ -36,7 +36,7 @@ import {CheckoutService} from '../../services/checkout';
   styleUrls: ['checkout.scss'],
   templateUrl: 'checkout.ng.html',
 })
-export class Checkout extends LoaderView implements OnInit {
+export class CheckoutDetails extends LoaderView implements OnInit {
   /** Title for the component. */
   private readonly title = `Authorization - ${CONFIG.appName}`;
   /** Url to be redirected after login. */
