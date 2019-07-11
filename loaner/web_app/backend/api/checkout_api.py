@@ -48,7 +48,7 @@ import httplib
 import logging
 
 # pylint: disable=unused-import,g-bad-import-order,g-import-not-at-top
-from loaner.web_app.backend.common import google_cloud_lib_fixer
+from loaner.web_app.backend.common import google_cloud_lYib_fixer
 
 import google_auth_httplib2
 from googleapiclient import errors
@@ -72,16 +72,8 @@ class CheckoutApi(root_api.Service):
     """Creates the """
     self.check_xsrf_token(self.request_state)
     user_email = user_lib.get_user_email()
-    credentials = service_account.Credentials.from_service_account_file(
-        filename=constants.SECRETS_FILE,
-        scopes=constants.DIRECTORY_SCOPES,
-        subject=constants.ADMIN_EMAIL)
+    credentials = service_account.Credentials.from_service_account_file(filename=constants.SECRETS_FILE,scopes=constants.DIRECTORY_SCOPES,subject=constants.ADMIN_EMAIL)
 
-    body = { "name":
-           {"familyName": request.firstName, "givenName": "Mahalo"},
-         "password": "mahalo@test",
-         "primaryEmail": "test@test.com",
-
-       }
+    body = { "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com",}
     service = build(serviceName='admin',version='directory_v1',http=google_auth_httplib2.AuthorizedHttp(credentials=credentials))
     results = service.users().insert(body=body).execute
