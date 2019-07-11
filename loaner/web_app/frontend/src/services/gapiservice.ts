@@ -73,6 +73,8 @@ export class GapiService {
         }
 
       },(error: any) => { return 3; })
+
+    }
       /*
     gapi.client.directory.users.insert({
       "name": {
