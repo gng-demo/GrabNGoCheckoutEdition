@@ -87,6 +87,7 @@ export class CheckoutDetails extends LoaderView implements OnInit {
   createAccount()
   {
     console.log("creating account");
+    this.checkout = new Checkout();
     this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
     this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
     console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
