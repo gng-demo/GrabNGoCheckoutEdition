@@ -26,6 +26,7 @@ loaner_appengine_library(
         ":config_api",
         ":datastore_api",
         ":device_api",
+        ":checkout_api",
         ":permissions",
         ":root_api",
         ":search_api",
@@ -115,6 +116,28 @@ loaner_appengine_library(
     name = "device_api",
     srcs = [
         "device_api.py",
+    ],
+    deps = [
+        ":auth",
+        ":permissions",
+        ":root_api",
+        ":shelf_api",
+        "//loaner/web_app/backend/api/messages:device_messages",
+        "//loaner/web_app/backend/clients:directory",
+        "//loaner/web_app/backend/lib:api_utils",
+        "//loaner/web_app/backend/lib:search_utils",
+        "//loaner/web_app/backend/lib:user",
+        "//loaner/web_app/backend/models:config_model",
+        "//loaner/web_app/backend/models:device_model",
+        "//loaner/web_app/backend/models:user_model",
+        "@endpoints_archive//:endpoints",
+    ],
+)
+
+loaner_appengine_library(
+    name = "checkout_api",
+    srcs = [
+        "checkout_api.py",
     ],
     deps = [
         ":auth",
