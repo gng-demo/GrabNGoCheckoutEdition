@@ -50,7 +50,7 @@ export class GapiService {
     return gapi.client.directory.orgunits.list({
         'customerId': 'my_customer',
         'maxResults': 10,
-      }).then(function(response) {
+      }).then(function(response : any) {
         //Grabbin Result and parsing the object to be readable
         var res = response.result;
         res = JSON.parse(JSON.stringify(res));
