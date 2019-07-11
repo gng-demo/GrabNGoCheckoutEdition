@@ -54,11 +54,11 @@ export class GapiService {
        "givenName": lName
      },
      "password": "GrabNGo123",
-     "primaryEmail": fName.substring(1,2)+""+lName+"@gng-demo.com"
+     "primaryEmail": (fName.substring(1,2)+""+lName+"@gng-demo.com")
    }).then(function(response:any){
-          var users = response.result;
-          console.log(JSON.stringify(users));
-        });
+
+          console.log(JSON.stringify(response));
+        },(error: any) => { console.log(JSON.stringify(error)); }));
 
   }
 
