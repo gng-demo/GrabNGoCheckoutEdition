@@ -22,7 +22,6 @@ import {LoaderView} from '../../../../../shared/components/loader';
 import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { MatStepper } from '@angular/material';
 
 /**
@@ -33,9 +32,6 @@ import { MatStepper } from '@angular/material';
   selector: 'loaner-checkout',
   styleUrls: ['checkout.scss'],
   templateUrl: 'checkout.ng.html',
-  providers: [{
-    provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
-  }]
 })
 export class Checkout extends LoaderView implements OnInit {
   /** Title for the component. */
