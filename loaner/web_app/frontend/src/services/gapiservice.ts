@@ -47,21 +47,20 @@ export class GapiService {
   CreateUser(fName:string, lName:string)
   {
     console.log("Fnam: "+fName+" "+lName);
-    /*
+
     gapi.client.directory.users.insert({
+      "name": {
+       "familyName": fName,
+       "givenName": lName
+     },
+     "password": "GrabNGo123",
+     "primaryEmail": fName.substring(1,2)+""+lName+"@gng-demo.com"
 
         }).then(function(response) {
-          var users = response.result.users;
+          var users = response.result;
           users = JSON.parse(JSON.stringify(users));
-          if (users && users.length > 0) {
-            for (var i of users) {
-              var user = i;
-              console.log('-' + user.primaryEmail + ' (' + user.name.fullName + ')');
-            }
-          } else {
-            console.log('No users found.');
-          }
-        });*/
+          console.log(users);
+        });
 
   }
 
