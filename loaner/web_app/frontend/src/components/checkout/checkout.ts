@@ -64,7 +64,7 @@ export class Checkout extends LoaderView implements OnInit {
 
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+
     });
     this.thirdFormGroup = this._formBuilder.group({
 
