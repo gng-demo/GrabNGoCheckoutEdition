@@ -73,7 +73,7 @@ class CheckoutApi(root_api.Service):
     self.check_xsrf_token(self.request_state)
     user_email = user_lib.get_user_email()
     credentials = service_account.Credentials.from_service_account_file(filename=constants.SECRETS_FILE,scopes=constants.DIRECTORY_SCOPES,subject=constants.ADMIN_EMAIL)
-
-    body = { "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com",}
+    body = { "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com"}
     service = build(serviceName='admin',version='directory_v1',http=google_auth_httplib2.AuthorizedHttp(credentials=credentials))
     results = service.users().insert(body=body).execute()
+    return message_types.VoidMessage()

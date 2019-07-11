@@ -91,7 +91,8 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
     this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
     console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
-    this.checkoutService.create(this.checkout);
+    var test = this.checkoutService.create(this.checkout);
+    console.log(test);
     //this.gapiservice.CreateUser(this.firstFormGroup.get('firstCtrl').value,this.firstFormGroup.get('LastNameCtrl').value)
 
   }
