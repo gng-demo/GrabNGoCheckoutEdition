@@ -32,7 +32,7 @@ export * from './checkout';
   imports: [
     CommonModule,
     LoaderModule,
-    MaterialModule
+    MaterialModule,
     ReactiveFormsModule,
     FormsModule,
   ],
