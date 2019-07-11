@@ -168,7 +168,7 @@ DIRECTORY_SCOPES = (
     'https://www.googleapis.com/auth/admin.directory.device.chromeos',
     'https://www.googleapis.com/auth/admin.directory.group.member.readonly',
     'https://www.googleapis.com/auth/admin.directory.orgunit',
-    'https://www.googleapis.com/auth/admin.directory.user.readonly',
+    'https://www.googleapis.com/auth/admin.directory.user',
 )
 
 # Dictionary defining where Grab n Go Loaner devices will be moved to enable and

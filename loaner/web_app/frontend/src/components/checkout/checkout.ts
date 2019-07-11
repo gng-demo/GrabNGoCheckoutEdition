@@ -24,6 +24,8 @@ import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
 import { MatStepper } from '@angular/material';
 import {GapiService} from '../../services/gapiservice';
+import {Checkout} from '../../models/checkout';
+import {CheckoutService} from '../../services/checkout';
 
 /**
  * Component that renders the Authorization flow of the application.
@@ -43,6 +45,7 @@ export class Checkout extends LoaderView implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  checkout:Checkout;
 
 
   constructor(
@@ -52,6 +55,7 @@ export class Checkout extends LoaderView implements OnInit {
       private readonly titleService: Title,
       private _formBuilder: FormBuilder,
       private readonly gapiservice:GapiService,
+      private readonly checkoutService: CheckoutService,
   ) {
     super(true);
 
@@ -83,7 +87,11 @@ export class Checkout extends LoaderView implements OnInit {
   createAccount()
   {
     console.log("creating account");
-    this.gapiservice.CreateUser(this.firstFormGroup.get('firstCtrl').value,this.firstFormGroup.get('LastNameCtrl').value);
+    this.gapiservice.CreateUser(this.firstFormGroup.get('firstCtrl').value,this.firstFormGroup.get('LastNameCtrl').value)
+    this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
+    this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
+    console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
+    this.checkoutService.create(this.checkout);
   }
 
 
