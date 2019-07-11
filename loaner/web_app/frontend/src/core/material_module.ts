@@ -15,7 +15,7 @@
 import {CdkTableModule} from '@angular/cdk/table';
 import {NgModule} from '@angular/core';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatAutocompleteModule, MatBadgeModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatIconRegistry, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule,MatFormFieldModule} from '@angular/material';
+import {MatAutocompleteModule, MatStepperModule, MatBadgeModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatIconRegistry, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule,MatFormFieldModule} from '@angular/material';
 
 const MATERIAL_MODULES = [
   CdkTableModule,        FlexLayoutModule,
@@ -34,7 +34,8 @@ const MATERIAL_MODULES = [
   MatTabsModule,         MatToolbarModule,
   MatTooltipModule,      MatDatepickerModule,
   MatNativeDateModule,   MatChipsModule,
-  MatSlideToggleModule,  MatFormFieldModule
+  MatSlideToggleModule,  MatFormFieldModule,
+  MatStepperModule
 ];
 
 @NgModule({

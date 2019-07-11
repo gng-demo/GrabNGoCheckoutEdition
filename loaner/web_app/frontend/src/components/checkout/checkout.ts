@@ -23,6 +23,7 @@ import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { MatStepper } from '@angular/material';
 
 /**
  * Component that renders the Authorization flow of the application.
