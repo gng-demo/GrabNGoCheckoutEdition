@@ -35,7 +35,6 @@ import {SearchService} from './services/search';
 import {ShelfService} from './services/shelf';
 import {LoanerSnackBar} from './services/snackbar';
 import {UserService} from './services/user';
-import {MatStepperModule} from '../../core/material_module';
 
 /** Root module of the Loaner app. */
 @NgModule({
@@ -51,7 +50,6 @@ import {MatStepperModule} from '../../core/material_module';
     LoaderModule,
     LoanerRouterModule,
     SearchBoxModule,
-    MatStepperModule
   ],
   providers: [
     AuthService,
