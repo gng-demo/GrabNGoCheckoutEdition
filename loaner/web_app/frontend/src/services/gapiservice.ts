@@ -47,7 +47,47 @@ export class GapiService {
   CreateUser(fName:string, lName:string)
   {
     console.log("Fnam: "+fName+" "+lName);
-    gapi.client.directory.users.list({
+    return gapi.client.directory.orgunits.list({
+        'customerId': 'my_customer',
+        'maxResults': 10,
+      }).then(function(response) {
+        //Grabbin Result and parsing the object to be readable
+        var res = response.result;
+        res = JSON.parse(JSON.stringify(res));
+        //sifting through the Organization Unit property which is an array
+        //Seeing if the Grab n Go OU exist.
+        console.log(res.organizationUnits);
+        console.log(res["kind"]);
+        if(res && res.organizationUnits.length >0)
+        {
+
+          for (var i of res.organizationUnits) {
+
+              if((i.name+"") == "Grab n Go")
+              {
+                return 0
+              }
+          }
+          return 1;
+
+        }
+
+      },(error: any) => { return 3; })
+      /*
+    gapi.client.directory.users.insert({
+      "name": {
+       "familyName": fName,
+       "givenName": lName
+     },
+     "password": "GrabNGo123",
+     "primaryEmail": (fName.substring(1,2)+""+lName+"@gng-demo.com")
+   }).then(function(response:any){
+
+          console.log(JSON.stringify(response));
+        },(error: any) => { console.log(JSON.stringify(error)); });
+
+  }
+     gapi.client.directory.users.list({
           'customer': 'my_customer',
           'maxResults': 10,
           'orderBy': 'email'
@@ -62,24 +102,12 @@ export class GapiService {
           } else {
             console.log('No users found.');
           }
-        });
+        });*/
 
 
 
 
-    gapi.client.directory.users.insert({
-      "name": {
-       "familyName": fName,
-       "givenName": lName
-     },
-     "password": "GrabNGo123",
-     "primaryEmail": (fName.substring(1,2)+""+lName+"@gng-demo.com")
-   }).then(function(response:any){
 
-          console.log(JSON.stringify(response));
-        },(error: any) => { console.log(JSON.stringify(error)); });
-
-  }
 
 
 
