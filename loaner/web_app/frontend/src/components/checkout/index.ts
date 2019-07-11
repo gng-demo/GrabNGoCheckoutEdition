@@ -16,7 +16,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 
 import {LoaderModule} from '../../../../../shared/components/loader';
-import {MatStepperModule} from '../../core/material_module';
+import {MatStepperModule, MatInputModule, MatButtonModule} from '@angular/material'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Checkout} from './checkout';
 
