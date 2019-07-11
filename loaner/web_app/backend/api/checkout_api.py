@@ -67,7 +67,7 @@ class CheckoutApi(root_api.Service):
       message_types.VoidMessage,
       name='create',
       path='create',
-      http_method='POST'
+      http_method='POST')
   def create(self, request):
     """Creates the """
     self.check_xsrf_token(self.request_state)
