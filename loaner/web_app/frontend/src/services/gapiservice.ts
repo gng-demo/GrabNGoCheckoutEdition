@@ -55,8 +55,7 @@ export class GapiService {
      },
      "password": "GrabNGo123",
      "primaryEmail": fName.substring(1,2)+""+lName+"@gng-demo.com"
-
-        }).then(function(response) {
+   }).then(function(response:any){
           var users = response.result;
           console.log(JSON.stringify(users));
         });
