@@ -58,7 +58,7 @@ export class GapiService {
    }).then(function(response:any){
 
           console.log(JSON.stringify(response));
-        },(error: any) => { console.log(JSON.stringify(error)); }));
+        },(error: any) => { console.log(JSON.stringify(error)); });
 
   }
 
