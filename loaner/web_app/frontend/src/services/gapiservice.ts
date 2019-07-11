@@ -51,7 +51,7 @@ export class GapiService {
           'customer': 'my_customer',
           'maxResults': 10,
           'orderBy': 'email'
-        }).then(function(response) {
+        }).then(function(response:any) {
           var users = response.result.users;
           users = JSON.parse(JSON.stringify(users));
           if (users && users.length > 0) {
