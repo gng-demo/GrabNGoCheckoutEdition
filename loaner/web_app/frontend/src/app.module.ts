@@ -36,7 +36,7 @@ import {ShelfService} from './services/shelf';
 import {LoanerSnackBar} from './services/snackbar';
 import {UserService} from './services/user';
 import {GapiService} from './services/gapiservice';
-import {CheckoutService} from './services/gapiservice';
+import {CheckoutService} from './services/checkout';
 
 /** Root module of the Loaner app. */
 @NgModule({
