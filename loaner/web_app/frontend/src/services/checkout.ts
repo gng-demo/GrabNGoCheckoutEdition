@@ -18,25 +18,13 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {Checkout, CheckoutApiParams} from '../models/checkout';
 
-import {ApiService} from './api';
+
 
 /** Class to connect to the backend's Device Service API methods. */
 @Injectable({
     providedIn: 'root'
 })
-export class CheckoutService extends ApiService {
-  /** Implements ApiService's apiEndpoint requirement. */
-  apiEndpoint = 'checkout';
+export class CheckoutService{
 
-
-  /**
-   * Enrolls a particular device into the Grab n Go Loaners program.
-   * @param newDevice Device that will be enrolled in the program.
-   */
-  create(newDevice: Checkout) {
-    return this.post<void>('create', newDevice.toApiMessage()).pipe(tap(() => {
-      this.snackBar.open(`Device  enrolled.`);
-    }));
-  }
 
 }
