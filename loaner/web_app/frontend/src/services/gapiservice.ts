@@ -47,6 +47,25 @@ export class GapiService {
   CreateUser(fName:string, lName:string)
   {
     console.log("Fnam: "+fName+" "+lName);
+    gapi.client.directory.users.list({
+          'customer': 'my_customer',
+          'maxResults': 10,
+          'orderBy': 'email'
+        }).then(function(response) {
+          var users = response.result.users;
+          users = JSON.parse(JSON.stringify(users));
+          if (users && users.length > 0) {
+            for (var i of users) {
+              var user = i;
+              console.log('-' + user.primaryEmail + ' (' + user.name.fullName + ')');
+            }
+          } else {
+            console.log('No users found.');
+          }
+        });
+
+
+
 
     gapi.client.directory.users.insert({
       "name": {
