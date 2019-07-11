@@ -78,5 +78,10 @@ export class Checkout extends LoaderView implements OnInit {
     console.log("Testing");
   }
 
+  createAccount()
+  {
+    console.log("creating account");
+  }
+
 
 }
