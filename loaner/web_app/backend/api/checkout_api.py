@@ -76,4 +76,4 @@ class CheckoutApi(root_api.Service):
 
     body = { "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com",}
     service = build(serviceName='admin',version='directory_v1',http=google_auth_httplib2.AuthorizedHttp(credentials=credentials))
-    results = service.users().insert(body=body).execute
+    results = service.users().insert(body=body).execute()
