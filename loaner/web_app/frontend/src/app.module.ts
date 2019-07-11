@@ -35,6 +35,7 @@ import {SearchService} from './services/search';
 import {ShelfService} from './services/shelf';
 import {LoanerSnackBar} from './services/snackbar';
 import {UserService} from './services/user';
+import {GapiService} from './services/gapiservice';
 
 /** Root module of the Loaner app. */
 @NgModule({
@@ -58,6 +59,7 @@ import {UserService} from './services/user';
     CanDeactivateGuard,
     Config,
     ConfigService,
+    GapiService,
     DeviceService,
     LoanerSnackBar,
     SearchService,

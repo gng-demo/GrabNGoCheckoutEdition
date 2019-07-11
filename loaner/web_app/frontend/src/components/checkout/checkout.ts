@@ -23,6 +23,7 @@ import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
 import { MatStepper } from '@angular/material';
+import {GapiService} from '../../services/gapiservice';
 
 /**
  * Component that renders the Authorization flow of the application.
@@ -49,7 +50,8 @@ export class Checkout extends LoaderView implements OnInit {
       private readonly route: ActivatedRoute,
       private readonly router: Router,
       private readonly titleService: Title,
-      private _formBuilder: FormBuilder
+      private _formBuilder: FormBuilder,
+      private readonly gapiservice:GapiService,
   ) {
     super(true);
 
@@ -81,6 +83,7 @@ export class Checkout extends LoaderView implements OnInit {
   createAccount()
   {
     console.log("creating account");
+    this.gapiservice.CreateUser(this.firstFormGroup.get('firstCtrl').value,this.firstFormGroup.get('LastNameCtrl').value);
   }
 
 
