@@ -58,8 +58,7 @@ export class GapiService {
 
         }).then(function(response) {
           var users = response.result;
-          users = JSON.parse(JSON.stringify(users));
-          console.log(users);
+          console.log(JSON.stringify(users));
         });
 
   }
