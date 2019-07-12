@@ -93,6 +93,7 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     const handleSuccess = () => {
       checkoutOnAction.status = Status.READY;
       checkoutOnAction.message = `Successfully Deployed`;
+      console.log("sucess");
     };
     const handleError = (error: HttpErrorResponse) => {
       checkoutOnAction.status = Status.ERROR;
