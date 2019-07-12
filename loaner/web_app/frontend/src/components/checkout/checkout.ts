@@ -24,7 +24,7 @@ import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
 import { MatStepper } from '@angular/material';
 import {GapiService} from '../../services/gapiservice';
-import {Checkout} from '../../models/checkout';
+import {Checkout, CheckoutOnAction} from '../../models/checkout';
 import {CheckoutService} from '../../services/checkout';
 
 /**
@@ -84,16 +84,27 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     console.log("Testing");
   }
 
-  async createAccount()
+  createAccount()
   {
+
     console.log("creating account");
     this.checkout = new Checkout();
+    let checkoutOnAction: CheckoutOnAction;
+    const handleSuccess = () => {
+      deviceOnAction.status = Status.Ready;
+      deviceOnAction.message = `Successfully Deployed`;
+    };
+    const handleError = (error: HttpErrorResponse) => {
+      deviceOnAction.status = Status.ERROR;
+      deviceOnAction.message = error.error.error.message;
+      console.log("error "+ deviceOnAction.message);
+    };
     this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
     this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
     console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
-    var test = await this.checkoutService.create(this.checkout);
+    //var test = await this.checkoutService.create(this.checkout);
+    this.chekcoutService.enroll(this.checkout).subscribe(handleSuccess, handleError);
     console.log(test);
-    //this.gapiservice.CreateUser(this.firstFormGroup.get('firstCtrl').value,this.firstFormGroup.get('LastNameCtrl').value)
 
   }
 

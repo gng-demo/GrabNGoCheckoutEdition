@@ -26,6 +26,7 @@ export declare interface CheckoutApiParams {
 
 
 
+
 /** A device model with all its properties and methods. */
 export class Checkout {
   /** Serial number of the device. */
@@ -51,4 +52,20 @@ export class Checkout {
   }
 
 
+}
+
+export enum Status {
+  READY = 1,
+  ERROR,
+  IN_PROGRESS,
+}
+
+/**
+ * Properties for a device to be enrolled/unenrolled/audited such as its
+ * current status and error/success message.
+ */
+export interface CheckoutOnAction {
+  deviceId: string;
+  status: Status;
+  message?: string;
 }
