@@ -17,14 +17,14 @@ import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-
+import {HttpErrorResponse} from '@angular/common/http';
 import {LoaderView} from '../../../../../shared/components/loader';
 import {CONFIG} from '../../app.config';
 import {AuthService} from '../../services/auth';
 import {MatStepperModule, MatInputModule, MatButtonModule, MatFormFieldModule} from '@angular/material'
 import { MatStepper } from '@angular/material';
 import {GapiService} from '../../services/gapiservice';
-import {Checkout, CheckoutOnAction} from '../../models/checkout';
+import {Checkout, CheckoutOnAction, Status} from '../../models/checkout';
 import {CheckoutService} from '../../services/checkout';
 
 /**
@@ -91,20 +91,20 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     this.checkout = new Checkout();
     let checkoutOnAction: CheckoutOnAction;
     const handleSuccess = () => {
-      deviceOnAction.status = Status.Ready;
-      deviceOnAction.message = `Successfully Deployed`;
+      checkpointOnAction.status = Status.Ready;
+      checkpointOnAction.message = `Successfully Deployed`;
     };
     const handleError = (error: HttpErrorResponse) => {
-      deviceOnAction.status = Status.ERROR;
-      deviceOnAction.message = error.error.error.message;
-      console.log("error "+ deviceOnAction.message);
+      checkpointOnAction.status = Status.ERROR;
+      checkpointOnAction.message = error.error.error.message;
+      console.log("error "+ checkpointOnAction.message);
     };
     this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
     this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
     console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
     //var test = await this.checkoutService.create(this.checkout);
-    this.chekcoutService.enroll(this.checkout).subscribe(handleSuccess, handleError);
-    console.log(test);
+    this.checkoutService.enroll(this.checkout).subscribe(handleSuccess, handleError);
+    //console.log(test);
 
   }
 
