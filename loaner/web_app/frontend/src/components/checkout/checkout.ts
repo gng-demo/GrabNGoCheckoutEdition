@@ -91,19 +91,19 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     this.checkout = new Checkout();
     let checkoutOnAction: CheckoutOnAction;
     const handleSuccess = () => {
-      checkpointOnAction.status = Status.Ready;
-      checkpointOnAction.message = `Successfully Deployed`;
+      checkoutOnAction.status = Status.Ready;
+      checkoutOnAction.message = `Successfully Deployed`;
     };
     const handleError = (error: HttpErrorResponse) => {
-      checkpointOnAction.status = Status.ERROR;
-      checkpointOnAction.message = error.error.error.message;
-      console.log("error "+ checkpointOnAction.message);
+      checkoutOnAction.status = Status.ERROR;
+      checkoutOnAction.message = error.error.error.message;
+      console.log("error "+ checkoutOnAction.message);
     };
     this.checkout.firstName = this.firstFormGroup.get('firstCtrl').value+"";
     this.checkout.lastName = this.firstFormGroup.get('LastNameCtrl').value+"";
     console.log("Creds "+this.checkout.firstName + " " +this.checkout.lastName);
     //var test = await this.checkoutService.create(this.checkout);
-    this.checkoutService.enroll(this.checkout).subscribe(handleSuccess, handleError);
+    this.checkoutService.create(this.checkout).subscribe(handleSuccess, handleError);
     //console.log(test);
 
   }
