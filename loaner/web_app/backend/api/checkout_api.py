@@ -36,19 +36,7 @@ from loaner.web_app.backend.lib import user as user_lib
 from loaner.web_app.backend.models import config_model
 from loaner.web_app.backend.models import device_model
 from loaner.web_app.backend.models import user_model
-
-import httplib
-import logging
-
-# pylint: disable=unused-import,g-bad-import-order,g-import-not-at-top
-from loaner.web_app.backend.common import google_cloud_lYib_fixer
-
-import google_auth_httplib2
-from googleapiclient import errors
-from googleapiclient.discovery import build
-from google.oauth2 import service_account
-
-from loaner.web_app import constants
+from loaner.web_app.backend.models import checkout_model
 
 
 @root_api.ROOT_API.api_class(resource_name='checkout', path='checkout')
@@ -65,8 +53,8 @@ class CheckoutApi(root_api.Service):
     """Creates the """
     self.check_xsrf_token(self.request_state)
     user_email = user_lib.get_user_email()
-    credentials = service_account.Credentials.from_service_account_file(filename=constants.SECRETS_FILE,scopes=constants.DIRECTORY_SCOPES,subject=constants.ADMIN_EMAIL)
-    body = { "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com"}
-    service = build(serviceName='admin',version='directory_v1',http=google_auth_httplib2.AuthorizedHttp(credentials=credentials))
-    results = service.users().insert(body=body).execute()
+    try:
+        checkout_model.CheckoutM.createUser(fn=request.firstName,ln="request.lastName",user_email=user_email)
+    except(datastore_errors.BadValueError)as error:
+        raise endpoints.BadRequestException(str(error))
     return message_types.VoidMessage()

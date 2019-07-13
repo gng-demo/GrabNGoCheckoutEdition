@@ -100,6 +100,31 @@ class DirectoryApiClient(object):
         version='directory_v1',
         http=google_auth_httplib2.AuthorizedHttp(credentials=credentials))
 
+  def CreateUser(self, fn,ln):
+    """Query for a Chrome device inside of an organization by deviceId.
+
+    Args:
+      device_id: String, The unique ID of the Chrome device.
+
+    Returns:
+      A dictionary based on a JSON object of kind
+        admin#directory#chromeosdevice. For reference: https://goo.gl/8mQbXD
+
+    Raises:
+      DirectoryRPCError: An error when the RPC call to the directory API fails.
+    """
+    try:
+      return self._client.users().insert(body={ "name":{"familyName": request.firstName, "givenName": "Mahalo"},"password": "mahalo@test","primaryEmail": "test@test.com"}).execute()
+    except errors.HttpError as err:
+      if err.resp.status == httplib.NOT_FOUND:
+        return None
+      else:
+        logging.error(
+            'Directory API get Chrome device failed with a %s exception '
+            'because %s.', str(type(err)), err.resp.reason)
+        raise DirectoryRPCError(err.resp.reason)
+
+
   def get_chrome_device(self, device_id):
     """Query for a Chrome device inside of an organization by deviceId.
 
@@ -126,6 +151,7 @@ class DirectoryApiClient(object):
             'Directory API get Chrome device failed with a %s exception '
             'because %s.', str(type(err)), err.resp.reason)
         raise DirectoryRPCError(err.resp.reason)
+
 
   def get_chrome_device_by_serial(self, serial_number):
     """Query for a Chrome device inside of an organization by serial number.

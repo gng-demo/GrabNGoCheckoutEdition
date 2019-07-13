@@ -150,6 +150,7 @@ loaner_appengine_library(
         "//loaner/web_app/backend/lib:search_utils",
         "//loaner/web_app/backend/lib:user",
         "//loaner/web_app/backend/models:config_model",
+        "//loaner/web_app/backend/models:checkout_model",
         "//loaner/web_app/backend/models:device_model",
         "//loaner/web_app/backend/models:user_model",
         "//loaner/web_app/backend/common:google_cloud_lib_fixer",

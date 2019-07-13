@@ -24,6 +24,7 @@ loaner_appengine_library(
         ":bigquery_row_model",
         ":bootstrap_status_model",
         ":config_model",
+        ":checkout_model"
         ":device_model",
         ":event_models",
         ":shelf_model",
@@ -71,6 +72,23 @@ loaner_appengine_library(
     ],
     deps = [
         "//loaner/web_app/backend/lib:utils",
+    ],
+)
+loaner_appengine_library(
+    name = "checkout_model",
+    srcs = [
+        "checkout_model.py",
+    ],
+    deps = [
+        ":base_model",
+        ":config_model",
+        ":user_model",
+        "//loaner/web_app:constants",
+        "//loaner/web_app/backend/api:permissions",
+        "//loaner/web_app/backend/clients:directory",
+        "//loaner/web_app/backend/lib:events",
+        "//loaner/web_app/backend/lib:user",
+        "@absl_archive//absl/logging",
     ],
 )
 
