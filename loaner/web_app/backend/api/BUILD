@@ -152,6 +152,10 @@ loaner_appengine_library(
         "//loaner/web_app/backend/models:config_model",
         "//loaner/web_app/backend/models:device_model",
         "//loaner/web_app/backend/models:user_model",
+        "//loaner/web_app/backend/common:google_cloud_lib_fixer",
+        "@gcloud_auth_archive//:gcloud_auth",
+        "@google_auth_httplib2_archive//:google_auth_httplib2",
+        "@googleapiclient_archive//:googleapiclient",
         "@endpoints_archive//:endpoints",
     ],
 )
