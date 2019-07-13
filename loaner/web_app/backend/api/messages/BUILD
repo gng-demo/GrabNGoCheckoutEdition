@@ -43,6 +43,16 @@ loaner_appengine_library(
         "datastore_messages.py",
     ],
 )
+loaner_appengine_library(
+    name = "checkout_messages",
+    srcs = [
+        "checkout_messages.py",
+    ],
+    deps = [
+        ":shared_messages",
+        ":shelf_messages",
+    ],
+)
 
 loaner_appengine_library(
     name = "device_messages",

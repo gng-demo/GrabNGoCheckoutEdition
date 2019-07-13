@@ -144,6 +144,7 @@ loaner_appengine_library(
         ":permissions",
         ":root_api",
         ":shelf_api",
+        "//loaner/web_app/backend/api/messages:checkout_messages",
         "//loaner/web_app/backend/api/messages:device_messages",
         "//loaner/web_app/backend/clients:directory",
         "//loaner/web_app/backend/lib:api_utils",
