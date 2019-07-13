@@ -44,7 +44,7 @@ class CheckoutApi(root_api.Service):
   """This class is for the Device API."""
 
   @auth.method(
-      device_messages.CheckoutRequest,
+      checkout_messages.CheckoutRequest,
       message_types.VoidMessage,
       name='create',
       path='create',
