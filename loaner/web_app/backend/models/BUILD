@@ -24,7 +24,7 @@ loaner_appengine_library(
         ":bigquery_row_model",
         ":bootstrap_status_model",
         ":config_model",
-        ":checkout_model"
+        ":checkout_model",
         ":device_model",
         ":event_models",
         ":shelf_model",
