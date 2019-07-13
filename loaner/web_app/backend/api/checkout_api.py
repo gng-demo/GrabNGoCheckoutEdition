@@ -28,7 +28,7 @@ from loaner.web_app.backend.api import auth
 from loaner.web_app.backend.api import permissions
 from loaner.web_app.backend.api import root_api
 from loaner.web_app.backend.api import shelf_api
-from loaner.web_app.backend.api.messages import device_messages
+from loaner.web_app.backend.api.messages import checkout_messages
 from loaner.web_app.backend.clients import directory
 from loaner.web_app.backend.lib import api_utils
 from loaner.web_app.backend.lib import search_utils
@@ -44,7 +44,7 @@ class CheckoutApi(root_api.Service):
   """This class is for the Device API."""
 
   @auth.method(
-      device_messages.DeviceRequest,
+      device_messages.CheckoutRequest,
       message_types.VoidMessage,
       name='create',
       path='create',
