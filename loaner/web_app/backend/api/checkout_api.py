@@ -54,7 +54,7 @@ class CheckoutApi(root_api.Service):
     self.check_xsrf_token(self.request_state)
     user_email = user_lib.get_user_email()
     try:
-        checkout_model.CheckoutM.createUser(fn=request.firstName,ln="request.lastName",user_email=user_email)
+        checkout_model.CheckoutM.createUser(request.firstName,"request.lastName",user_email)
     except(datastore_errors.BadValueError)as error:
         raise endpoints.BadRequestException(str(error))
     return message_types.VoidMessage()

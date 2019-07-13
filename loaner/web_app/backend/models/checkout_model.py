@@ -58,4 +58,4 @@ class CheckoutM():
   @classmethod
   def createUser(fn, ln,user_email):
     directory_client = directory.DirectoryApiClient(user_email)
-    directory_device_object = directory_client.CreateUser(fn=fn,ln=ln)
+    directory_device_object = directory_client.CreateUser(fn,ln)
