@@ -37,13 +37,6 @@ from loaner.web_app.backend.models import config_model
 from loaner.web_app.backend.models import device_model
 from loaner.web_app.backend.models import user_model
 
-"""Directory API library."""
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-
 import httplib
 import logging
 
