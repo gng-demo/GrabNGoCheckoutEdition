@@ -31,5 +31,5 @@ class CheckoutRequest(messages.Message):
     urlkey: str, The URL-safe key of a device.
     identifier: str, Either an asset tag or serial number of the device.
   """
-  first_name = messages.StringField(1)
-  last_name = messages.StringField(2)
+  firstName = messages.StringField(1)
+  lastName = messages.StringField(2)
