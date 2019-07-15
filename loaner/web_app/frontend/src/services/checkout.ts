@@ -14,7 +14,7 @@
 
 import {Injectable} from '@angular/core';
 import {MatSort} from '@angular/material';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable, of, ReplaySubject} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {Checkout, CheckoutApiParams} from '../models/checkout';
 

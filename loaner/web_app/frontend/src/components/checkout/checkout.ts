@@ -27,6 +27,13 @@ import {GapiService} from '../../services/gapiservice';
 import {Checkout, CheckoutOnAction, Status} from '../../models/checkout';
 import {CheckoutService} from '../../services/checkout';
 
+
+
+export interface AccountInfo {
+  username: string;
+  password: string;
+}
+
 /**
  * Component that renders the Authorization flow of the application.
  */
