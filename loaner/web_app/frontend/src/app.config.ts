@@ -60,6 +60,12 @@ export const APPLICATION_PERMISSIONS: Permissions = {
   REINDEX_SEARCH: 'reindex_search',
 };
 
+//gcloud iam service-accounts keys create ~/client-secret.json --iam-account "updatedgrabngo@grab-n-go-239222.iam.gserviceaccount.com"
+
+
+//gnglinuxdeployment/deployment/deployment.sh "grab-n-go-239222" "116086947124181674404" "updatedgrabngo@grab-n-go-239222.iam.gserviceaccount.com" "gng-demo.com" "gngadmin@gng-demo.com" "407651661683-vj2v2gqil041at2hnobm48tmu2mbu66o.apps.googleusercontent.com" "014847-8B82D2-11EF27"
+
+
 /**
  * Configuration object with environment specific variables.
  */
