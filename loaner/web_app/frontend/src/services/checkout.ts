@@ -25,6 +25,7 @@ import {ApiService} from './api';
 export class CheckoutService extends ApiService {
   /** Implements ApiService's apiEndpoint requirement. */
   apiEndpoint = 'checkout';
+  private apiUserCreated = new ReplaySubject<boolean>(1);
 
 
   /**
@@ -34,7 +35,16 @@ export class CheckoutService extends ApiService {
   create(newDevice: Checkout) {
     return this.post<void>('create', newDevice.toApiMessage()).pipe(tap(() => {
       this.snackBar.open(`Account Created `);
+      this.apiUserCreated.next(true);
+      this.apiUserCreated.complete();
     }));
   }
+
+  /** Returns a stream of the client's loading status. */
+  whenCreated(): Observable<boolean> {
+    return this.apiUserCreated.asObservable();
+  }
+
+
 
 }

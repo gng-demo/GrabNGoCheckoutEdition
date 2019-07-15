@@ -23,7 +23,10 @@ export declare interface CheckoutApiParams {
   lastName?: string;
 }
 
-
+export interface AccountInfo {
+  username: string;
+  password: string;
+}
 
 
 
@@ -33,6 +36,7 @@ export class Checkout {
   firstName = '';
   /** Asset tag of the device. */
   lastName = '';
+
 
 
   constructor(device: CheckoutApiParams = {}) {

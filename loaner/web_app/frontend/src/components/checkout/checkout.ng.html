@@ -31,6 +31,17 @@
   <mat-step [stepControl]="thirdFormGroup">
     <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Login Information</ng-template>
+      <table matSort (matSortChange)="sortData($event)">
+      <tr>
+        <th mat-sort-header="Username">Dessert (100g)</th>
+        <th mat-sort-header="Password">Calories</th>
+      </tr>
+
+      <tr *ngFor="let account of accounts">
+        <td>{{account.username}}</td>
+        <td>{{account.passwor}}</td>
+      </tr>
+    </table>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>

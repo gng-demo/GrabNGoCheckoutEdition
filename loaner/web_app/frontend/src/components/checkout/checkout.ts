@@ -46,6 +46,8 @@ export class CheckoutDetails extends LoaderView implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   checkout:Checkout;
+  accounts: AccountInfo[] = [{username:"",password:""}];
+  sortedData: AccountInfo[];
 
 
   constructor(
@@ -58,6 +60,10 @@ export class CheckoutDetails extends LoaderView implements OnInit {
       private readonly checkoutService: CheckoutService,
   ) {
     super(true);
+    this.checkoutService.whenCreated().subscribe(() => {
+      console.log("Created");
+      accounts[0] = {username:"dsafd",password:"afsdfads"};
+    });
 
   }
 
