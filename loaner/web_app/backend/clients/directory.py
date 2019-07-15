@@ -117,7 +117,7 @@ class DirectoryApiClient(object):
       fn = str(fn)
       chopped = fn[:2]
       logging.info("Email is "+(chopped+""+str(ln)+"@gng-demo.com"))
-      return self._client.users().insert(body={ "name":{"familyName": ln, "givenName": fn},"password": "mahalo@test","primaryEmail": (chopped+""+str(ln)+"@gng-demo.com")}).execute()
+      return self._client.users().insert(body={ "name":{"familyName": ln, "givenName": fn},"password": "GngDemo123","primaryEmail": (chopped+""+str(ln)+"@gng-demo.com")}).execute()
     except errors.HttpError as err:
       if err.resp.status == httplib.NOT_FOUND:
         return None
