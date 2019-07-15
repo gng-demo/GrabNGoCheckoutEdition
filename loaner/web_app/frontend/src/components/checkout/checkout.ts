@@ -69,7 +69,7 @@ export class CheckoutDetails extends LoaderView implements OnInit {
     super(true);
     this.checkoutService.whenCreated().subscribe(() => {
       console.log("Created");
-      accounts[0] = {username:"dsafd",password:"afsdfads"};
+      this.accounts[0] = {username:"dsafd",password:"afsdfads"};
     });
 
   }
