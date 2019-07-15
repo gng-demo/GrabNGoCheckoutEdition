@@ -114,7 +114,8 @@ class DirectoryApiClient(object):
       DirectoryRPCError: An error when the RPC call to the directory API fails.
     """
     try:
-      return self._client.users().insert(body={ "name":{"familyName": ln, "givenName": fn},"password": "mahalo@test","primaryEmail": ((fn[0:1])+ln+"@gng-demo.com")}).execute()
+      logging.info("Email is "((fn[0:1])+""+ln+"@gng-demo.com"))
+      return self._client.users().insert(body={ "name":{"familyName": ln, "givenName": fn},"password": "mahalo@test","primaryEmail": ((fn[0:1])+""+ln+"@gng-demo.com")}).execute()
     except errors.HttpError as err:
       if err.resp.status == httplib.NOT_FOUND:
         return None
